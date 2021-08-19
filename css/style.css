@@ -1708,16 +1708,7 @@ input[type="radio"] .styled:checked+label::after {
      border: #fff solid 2px;
      color: #000;
 }
-.main-form a {
-     background: #ee580f;
-     color: #fff;
-     float: left;
-     font-size: 15px;
-     font-weight: 400;
-     border: solid #ee580f 1px;
-     padding: 10px 77px;
-     margin: 57px 0px 0px 25px;
-}
+
 .main-form a:hover {
      background: #15cfe5;
      border: solid #15cfe5 1px;
