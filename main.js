@@ -2,7 +2,7 @@ var wordKey = "unimarlinhares"
 var starter =  moment().add(-35, "days").format("YYYY-MM-DD")
 var now =  moment().format("YYYY-MM-DD");
 var CONTENT_TRAVEL = [], FULL_DATA = []
-
+$("#search").prop('readonly', true);
 console.log("https://@"+wordKey+".auttran.com/api/unimar_passageiros.php?from=" + starter + "&to=" + now + "&cliente=8&token="+ moment().format("YYYYMMDD") +"unimar@" + moment().format("HH"))
 $.ajax({
     type: "GET",
@@ -11,6 +11,7 @@ $.ajax({
     data: "",
     success: async function(data3) {
       console.log(data3)
+      $("#search").prop('readonly', false);
       
 
       $("#search").click(function(){
@@ -57,7 +58,7 @@ $.ajax({
                     if(lat != null){
                         $.ajax({
                             type: 'GET',
-                            url: 'http://nominatim.openstreetmap.org/reverse?format=json&lat=' + lat + '&lon=' + lon,
+                            url: 'https://nominatim.openstreetmap.org/reverse?format=json&lat=' + lat + '&lon=' + lon,
                             data: "",
                             success: function (data) {
                                 console.log(data)
