@@ -88,6 +88,12 @@ $.ajax({
                                 var totalPassageiros = dados.passageiros.length
                                 var lotacao = lot(Number(dados.frota))
                                 var vagas = lotacao - totalPassageiros
+                                if(vagas < 0){ vagas = 0}
+                                var botao  = ""
+                                if(vagas > 0){
+                                    botao =vagas+' <a href="https://wa.me/5527981534300?text=Olá,%0D%0DGostaria de solicitar uma vaga na '+CONTENT_TRAVEL[0].rota.trim()+', as '+getVolta(horarioSaida)+'%0D%0DPara o colaborador: '+CONTENT_TRAVEL[0].info.nome+'"  class="btn btn-sm"><i style="color:green; font-size:2.2rem" class="fab fa-whatsapp-square"></i></a>'
+                                   vagas = botao
+                                }
 
                                 $(".main-form").append('<h4>Roteiro Oficial: <span style="color: rgb(0,87,156)">'+CONTENT_TRAVEL[0].itinerario+'</span><br><span style="color: rgb(0,87,156); font-size: 0.8rem">Data: '+dataSaida+', Horário Saída: '+getVolta(horarioSaida)+'<br>Lotação: '+totalPassageiros+'/'+lotacao+', Vagas: '+vagas+'</span></h4><p>'+FULL_DATA[0].rotaOpicional.curso.replace(/;/g, " "+icone)+icone+" WEG Linhares</p><hr>");
                 
@@ -101,6 +107,13 @@ $.ajax({
                                     var totalPassageiros = dados.passageiros.length
                                     var lotacao = lot(Number(dados.frota))
                                     var vagas = lotacao - totalPassageiros
+                                    if(vagas < 0){ vagas = 0}
+                                    var botao  = ""
+                                    if(vagas > 0){
+                                        botao = vagas+' <a href="https://wa.me/5527981534300?text=Olá,%0D%0DGostaria de solicitar uma vaga na '+FULL_DATA[a].rotaOpicional.rota.trim()+', as '+getVolta(horarioSaida)+'%0D%0DPara o colaborador: '+CONTENT_TRAVEL[0].info.nome+'"  class="btn btn-sm"><i  style="color:green; font-size:2.2rem" class="fab fa-whatsapp-square"></i></a>'
+                                        vagas = botao
+                                    }
+                                  
 
                                     $(".main-form").append('<h4>Roteiro Alternativo: <span style="color: rgb(0,87,156)">'+FULL_DATA[a].rotaOpicional.rota+
                                     '</span><br><span style="color: rgb(0,87,156); font-size: 0.8rem">Data: '+dataSaida+', Horário Saída: '+getVolta(horarioSaida)+'<br>Lotação: '+totalPassageiros+'/'+lotacao+', Vagas: '+vagas+'</span></h4><p>'+FULL_DATA[a].rotaOpicional.curso.replace(/;/g, " "+icone)+icone+" WEG Linhares</p><hr>");
